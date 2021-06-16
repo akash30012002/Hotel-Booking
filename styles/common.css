@@ -31,8 +31,15 @@ header{
   top:0;
 }
 
+header img{
+  width: 60px;
+  height: 60px;
+  align-items: center;
+  margin-left: 1%;
+}
+
 header a {
-  margin-right: 20px;
+  margin-right: 2%;
 }
 
 .content{
@@ -45,31 +52,26 @@ footer{
   background-color: rosybrown;
   position: sticky;
   bottom: 0;
-}
-
-header img{
-  width: 60px;
-  height: 60px;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
 }
+
 footer img{
   width: 22px;
   height: 20px;
 }
 
 .contact{
-  float: left;
   padding: 12px;
+  margin-left: 2%;
 }
 
 .socialMedia{
-  float: right;
   padding: 12px;
+  margin-right: 2%;
 }
 
 .copyright{
   font-size: 0.75em;
-  position: absolute;
-  bottom: 0;
-  left: 45%;
 }

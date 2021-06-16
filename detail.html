@@ -14,20 +14,28 @@
         <a href="login.html">Login</a>
       </header>
       <div class="content">
-        <img src="https://media-cdn.tripadvisor.com/media/photo-w/17/b3/09/b4/by-the-poolside.jpg" alt=""> <br>
-        <form class="" action="payment.html" method="get" autocomplete="off">
-          <label>Adults: <input type="number" name="adult" value="" min="1" required> </label> <br>
-          <label>Name: <input type="text" name="name" value="" required> </label> <br>
-          <label>From Date: <input type="date" name="fromDate" value="" required> </label> <br>
-          <label>To Date: <input type="date" name="toDate" value="" required> </label> <br>
-          <label>Total <input type="number" name="price" value="" readonly> </label> <br>
-          <button>Book Now</button>
-        </form>
+        <div class="booking">
+          <div class="image">
+            <img src="https://media-cdn.tripadvisor.com/media/photo-w/17/b3/09/b4/by-the-poolside.jpg" alt="">
+          </div>
+          <div class="details">
+            <form class="" action="payment.html" method="get" autocomplete="off">
+              <div class="formDiv">
+                <div><label>Adults:</label><input type="number" name="adult" value="" min="1" required></div>
+                <div><label>Name:</label><input type="text" name="name" value="" required></div>
+                <div><label>From Date:</label><input type="date" name="fromDate" value="" required></div>
+                <div><label>To Date:</label><input type="date" name="toDate" value="" required></div>
+                <div><label>Total:</label><input type="number" name="price" value="" readonly></div>
+                <div><button style="padding:5px">Book Now</button></div>
+              </div>
+            </form>
+          </div>
+        </div>
         <div class="description">
           <h2>Radisson Blu Hotel</h2>
-          <p>RATING</p>
+          <p class="cursive"><b>RATING</b></p>
           <p>5 Star</p>
-          <p>AMENITIES</p>
+          <p class="cursive"><b>AMENITIES</b></p>
           <ul>
             <li>Room Service</li>
             <li>Restaurant</li>
@@ -35,7 +43,7 @@
             <li>Fitness Center</li>
             <li>Pool</li>
           </ul>
-          <h5>DESCRIPTION</h5>
+          <h5 class="cursive">DESCRIPTION</h5>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         </div>
       </div>
@@ -43,13 +51,13 @@
         <div class="contact">
           <a href="contact.html">Contact Us</a>
         </div>
+        <div class="copyright">
+          &copy; 2020 ROOM SEARCH PVT. LTD.
+        </div>
         <div class="socialMedia">
           <a href="https://www.facebook.com" target="_blank"> <img src="assets\images\facebook.png" alt="" width="22px" height="20px"> </a>
           <a href="https://www.instagram.com" target="_blank"> <img src="assets\images\instagram.png" alt="" width="22px" height="20px"> </a>
           <a href="https://www.twitter.com" target="_blank"> <img src="assets\images\twitter.png" alt="" width="22px" height="20px"> </a>
-        </div>
-        <div class="copyright">
-          &copy; 2020 ROOM SEARCH PVT. LTD.
         </div>
       </footer>
     </div>
