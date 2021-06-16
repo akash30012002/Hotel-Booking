@@ -1,24 +1,22 @@
-body{
-  width: 100%;
-  height: 100%;
-}
-
-.main{
-  width: 100%;
-  height: 100%;
-}
-
-header img{
-  width: 60px;
-  height: 60px;
-}
-
 .content img{
   width: 500px;
   height: 500px;
 }
 
-footer img{
-  width: 22px;
-  height: 20px;
+.hotel{
+  background-color: rgb(132,136,139);
+  width: 50%;
+  height 20%;
+  margin: 2% auto;
+}
+
+.customer{
+  margin: 2%;
+}
+
+.payment{
+  margin: 2%;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 1% 2%;
 }

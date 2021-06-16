@@ -1,0 +1,33 @@
+html{
+  height: 100%;
+  width: 100%;
+}
+
+body{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background-color: #e0e0e0;
+}
+
+.main{
+  width: 100%;
+  height: 100%;
+}
+
+header{
+  background-color: rosybrown;
+}
+
+footer{
+  background-color: rosybrown;
+}
+
+header img{
+  width: 60px;
+  height: 60px;
+}
+footer img{
+  width: 22px;
+  height: 20px;
+}
