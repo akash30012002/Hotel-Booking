@@ -1,0 +1,24 @@
+body{
+  width: 100%;
+  height: 100%;
+}
+
+.main{
+  width: 100%;
+  height: 100%;
+}
+
+header img{
+  width: 60px;
+  height: 60px;
+}
+
+.content img{
+  width: 150px;
+  height: 150px;
+}
+
+footer img{
+  width: 22px;
+  height: 20px;
+}
