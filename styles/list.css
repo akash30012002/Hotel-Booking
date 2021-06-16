@@ -48,3 +48,7 @@ a > li{
 .image{
   float:left;
 }
+
+.checked{
+  color:orange;
+}
