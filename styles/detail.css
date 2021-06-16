@@ -46,11 +46,11 @@ form{
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: flex-start;
 }
 
 .formDiv div label{
   flex-basis: 20%;
-  padding-left: 2%;
 }
 
 input{
@@ -60,4 +60,9 @@ input{
 
 .cursive{
   font-family: cursive;
+}
+
+.btn-success{
+  background-color: transparent;
+  color: green;
 }

@@ -47,12 +47,17 @@ form > input{
   box-shadow: 10px 10px 10px grey;
 }
 
+.image:hover .city{
+  visibility: visible;
+}
+
 .city{
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: #f1f1f1;
+  visibility: hidden;
 }
 
 .content img{
