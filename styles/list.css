@@ -1,10 +1,32 @@
+#list-view{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
 #list-view img{
   width: 250px;
   height: 250px;
 }
 
-#list-view div{
+#list-view > div{
   margin: 2%;
   background-color: rgb(132,136,139);
   width: 40%;
+}
+
+#map-view{
+  display: none;
+}
+
+ul{
+  list-style-type: none;
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+}
+
+a > li{
+  display: inline;
+  padding: 20px;
 }

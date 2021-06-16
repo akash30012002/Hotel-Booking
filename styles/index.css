@@ -1,9 +1,22 @@
-form{
+.search{
+  width: 100%;
   height: 380px;
   background-image: url("https://media-cdn.tripadvisor.com/media/photo-o/14/10/2e/af/india.jpg");
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: center center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form > input{
+  width: 400px;
+  border: 1px solid transparent;
+  padding: 10px;
+  background-color: #f1f1f1;
+  font-size: 16px;
+  border-radius: 12px;
 }
 
 .images{
@@ -23,4 +36,9 @@ form{
 .content img{
   width: 150px;
   height: 150px;
+}
+
+.viewMore{
+  padding-bottom: 20px;
+  text-align: center;
 }
