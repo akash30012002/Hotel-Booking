@@ -97,14 +97,14 @@
             </div>
           </div>
           <div class="details">
-            <form class="" action="payment.html" method="get" autocomplete="off">
+            <form id="form1" action="payment.html" method="get" autocomplete="off">
               <div class="formDiv">
                 <div><label>Adults:</label><input type="number" name="adult" value="" min="1" required></div>
                 <div><label>Name:</label><input type="text" name="name" value="" required></div>
                 <div><label>From Date:</label><input type="date" name="fromDate" value="" required></div>
                 <div><label>To Date:</label><input type="date" name="toDate" value="" required></div>
                 <div><label>Total:</label><input type="number" name="price" value="" readonly></div>
-                <div><button type="button" class="btn btn-success">Book Now</button></div>
+                <div> <button type="submit" class="btn btn-success" form="form1">Book Now</button> </div>
               </div>
             </form>
           </div>
