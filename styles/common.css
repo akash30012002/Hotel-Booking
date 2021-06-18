@@ -28,32 +28,33 @@ a:hover{
 
 header{
   width: 100%;
+  height: 60px;
   background-color: rosybrown;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: sticky;
+  position: fixed;
   top:0;
+  z-index:1;
 }
 
 header img{
   width: 60px;
   height: 60px;
-  align-items: center;
   margin-left: 1%;
 }
 
-header a {
+header > button {
   margin-right: 2%;
 }
 
 .content{
+  margin-top: 60px;
   width: 100%;
 }
 
 footer{
   width: 100%;
-  height: 65px;
   background-color: rosybrown;
   position: sticky;
   bottom: 0;
@@ -83,4 +84,22 @@ footer img{
 
 .btn-light{
   margin-right: 20px;
+}
+
+.modal-body input{
+  border: 1px solid grey;
+  border-radius: 3px;
+}
+
+.form-group > div{
+  display: flex;
+  margin: 5%;
+}
+
+.form-group > div > label{
+  flex: 30%;
+}
+
+.form-group > div > input{
+  flex: 70%;
 }
