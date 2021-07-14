@@ -25,18 +25,18 @@
           </div>
           <div class="modal-body">
             <form class="form-group">
-              <div class="">
+              <div>
                 <label>Username:</label>
-                <input type="email" placeholder="Enter Username">
+                <input id="Username" type="email" placeholder="Enter Username">
               </div>
-              <div class="">
-                <label for="example-input-password">Password:</label>
-                <input type="password" placeholder="Enter Password">
+              <div>
+                <label>Password:</label>
+                <input id="Password" type="password" placeholder="Enter Password">
               </div>
             </form>
           </div>
           <div class="modal-footer" style="margin:auto">
-            <button type="register" class="btn btn-primary">Login</button>
+            <button id="modal-login" type="register" class="btn btn-primary">Login</button>
           </div>
         </div>
       </div>
@@ -63,13 +63,8 @@
         </div>
       </div>
     </div>
+
     <div class="main">
-      <header class="header">
-        <img src="assets\images\logo.png" alt="logo" height="100px" width="150px">
-        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#myModal">
-          Login
-        </button>
-      </header>
       <div class="content">
         <div class="search">
           <form action="index.html" method="get" autocomplete="off">
@@ -118,22 +113,9 @@
           <a href="#"><button type="button" class="btn btn-secondary">View More</button></a>
         </div>
       </div>
-      <footer class="footer">
-        <div class="contact">
-          <button type="button" class="btn btn-info" data-toggle="modal" data-target="#contactUs">Contact Us</button>
-        </div>
-        <div class="copyright">
-          &copy; 2020 ROOM SEARCH PVT. LTD.
-        </div>
-        <div class="socialMedia">
-          <a href="https://www.facebook.com" target="_blank"> <img src="assets\images\facebook.png" alt="" width="22px" height="20px"> </a>
-          <a href="https://www.instagram.com" target="_blank"> <img src="assets\images\instagram.png" alt="" width="22px" height="20px"> </a>
-          <a href="https://www.twitter.com" target="_blank"> <img src="assets\images\twitter.png" alt="" width="22px" height="20px"> </a>
-        </div>
-      </footer>
     </div>
 
-    <script type="text/javascript" src="common.js"></script>
-    <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="scripts/common.js"></script>
+    <script type="text/javascript" src="scripts/index.js"></script>
   </body>
 </html>

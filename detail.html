@@ -26,18 +26,18 @@
           </div>
           <div class="modal-body">
             <form class="form-group">
-              <div class="">
+              <div>
                 <label>Username:</label>
-                <input type="email" placeholder="Enter Username">
+                <input id="Username" type="email" placeholder="Enter Username">
               </div>
-              <div class="">
-                <label for="example-input-password">Password:</label>
-                <input type="password" placeholder="Enter Password">
+              <div>
+                <label>Password:</label>
+                <input id="Password" type="password" placeholder="Enter Password">
               </div>
             </form>
           </div>
           <div class="modal-footer" style="margin:auto">
-            <button type="register" class="btn btn-primary">Login</button>
+            <button id="modal-login" type="register" class="btn btn-primary">Login</button>
           </div>
         </div>
       </div>
@@ -64,13 +64,8 @@
         </div>
       </div>
     </div>
+
     <div class="main">
-      <header class="header">
-        <a href="index.html"> <img src="assets\images\logo.png" alt="logo" height="100px" width="150px"> </a>
-        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#myModal" id="sign-in-button">
-          Login
-        </button>
-      </header>
       <div class="content">
         <div class="booking">
           <div class="image">
@@ -131,19 +126,9 @@
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         </div>
       </div>
-      <footer class="footer">
-        <div class="contact">
-          <button type="button" class="btn btn-info" data-toggle="modal" data-target="#contactUs">Contact Us</button>
-        </div>
-        <div class="copyright">
-          &copy; 2020 ROOM SEARCH PVT. LTD.
-        </div>
-        <div class="socialMedia">
-          <a href="https://www.facebook.com" target="_blank"> <img src="assets\images\facebook.png" alt="" width="22px" height="20px"> </a>
-          <a href="https://www.instagram.com" target="_blank"> <img src="assets\images\instagram.png" alt="" width="22px" height="20px"> </a>
-          <a href="https://www.twitter.com" target="_blank"> <img src="assets\images\twitter.png" alt="" width="22px" height="20px"> </a>
-        </div>
-      </footer>
+
+      <script type="text/javascript" src="scripts/common.js"></script>
+      <script type="text/javascript" src="scripts/detail.js"></script>
     </div>
   </body>
 </html>
