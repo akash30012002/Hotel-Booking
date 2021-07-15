@@ -24,7 +24,7 @@ footerTemplate.innerHTML = `
     <a href="https://www.twitter.com" target="_blank"> <img src="assets/images/twitter.png" alt="" width="22px" height="20px"> </a>
   </div>
 `
-document.querySelector('.main').appendChild(footerTemplate);
+document.querySelector('.content').after(footerTemplate);
 footerTemplate.setAttribute('class', 'footer');
 
 // Perform login on clicking login button on modal

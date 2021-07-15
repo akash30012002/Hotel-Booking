@@ -15,4 +15,16 @@ function toggleViewMore(){
   }
 }
 
-viewButton.addEventListener('click', toggleViewMore)
+viewButton.addEventListener('click', toggleViewMore);
+
+// Modify link query string on the basis of hotels
+function modifyCardLinks(){
+  let cityLinks = document.querySelectorAll('.image a');
+  let cityNames = document.querySelectorAll('.city');
+  for (let i=0; i<cityLinks.length; i++){
+    let attribute = cityLinks[i].href;
+    cityLinks[i].setAttribute('href', `${attribute}?city=${cityNames[i].textContent}`)
+  }
+}
+
+modifyCardLinks();
