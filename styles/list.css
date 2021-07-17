@@ -24,6 +24,9 @@
 
 #map-view{
   display: none;
+  width: 90%;
+  height: 600px;
+  margin:auto;
 }
 
 ul{
@@ -46,6 +49,10 @@ li{
 
 .checked{
   color:orange;
+}
+
+h6 ~ a:hover{
+  text-decoration: underline;
 }
 
 @media (max-width:768px){

@@ -1,3 +1,4 @@
+
 // Auto calculate price
 
 let todayDate = new Date().toISOString().substr(0, 10);
@@ -14,14 +15,14 @@ function autoCalculate(){
     toDateInput.setAttribute('min',fromDateInput.value)
   }
   // calculate no of days
-  let totalDays;
+  let totalDays=0;
   if (fromDateInput.value && toDateInput.value){
     let fromDateEpoch = fromDateInput.value + 'T00:00:00';
     let toDateEpoch = toDateInput.value + 'T00:00:00';
     totalDays = (new Date(toDateEpoch).getTime() - new Date(fromDateEpoch).getTime())/24/3600/1000;
   }
   // calculate total price
-  if (totalDays && noOfAdultsInput.value){
+  if (noOfAdultsInput.value){
     let calculatedTotalPrice = Math.floor(noOfAdultsInput.value) * totalDays * 1000;
     totalPriceInput.value = calculatedTotalPrice;
   }
@@ -65,6 +66,7 @@ let imagesObj;
 async function renderDescription() {
   let hotelImages = await getDescription(`https://travel-advisor.p.rapidapi.com/photos/list?location_id=${hotelID}`);
   let hotelDescription = await getDescription(`https://travel-advisor.p.rapidapi.com/hotels/get-details?location_id=${hotelID}`);
+  displayLoader(false);
   descriptionObj = hotelDescription.data[0];
   imagesObj = hotelImages.data;
 
@@ -104,7 +106,7 @@ async function renderDescription() {
   }
   // Updating the star rating
   let ratingObj = document.querySelectorAll('.fa-star');
-  let hotelRating = Math.max(5, Math.round(Number(descriptionObj.rating)));
+  let hotelRating = Math.min(5, Math.round(Number(descriptionObj.rating)));
   for (let i=0; i<hotelRating; i++){
     ratingObj[i].classList.add("checked");
   }

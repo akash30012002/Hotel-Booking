@@ -1,19 +1,45 @@
-
 // Get params from URL
-let hotelID,noOfAdults,bookingName,fromDate,toDate,totalPrice;
+
+let hotelID;
 
 function getParamsFromURL() {
   let url = location.href;
   let params = (new URL(url)).searchParams;
+  let noOfAdults = params.get('adult');
+  let bookingName = params.get('name');
+  let fromDate = params.get('fromDate');
+  let toDate = params.get('toDate');
+  let totalPrice = params.get('price');
   hotelID = params.get('id');
-  noOfAdults = params.get('adult');
-  bookingName = params.get('name');
-  fromDate = params.get('fromDate');
-  toDate = params.get('toDate');
-  totalPrice = params.get('price');
+  // Change booking details
+  let noOfNights = totalPrice/1000/noOfAdults;
+  let contentDiv = document.querySelector('.content');
+  let bottomDiv = document.createElement('div');
+  bottomDiv.classList.add("bottom");
+  let bookingDetailsObj = `
+  <div class="customer">
+    <p><b>Name:</b> ${bookingName}</p>
+    <p><b>Number of Adults:</b> ${noOfAdults}</p>
+    <p><b>Check-in Date:</b> ${fromDate}</p>
+    <p><b>Check-out Date:</b> ${toDate}</p>
+  </div>
+  <div class="payment">
+    <p><b>Tariff Breakdown:</b> Rs. 1000 x ${noOfAdults} Adults x ${noOfNights} nights</p>
+    <p><b>Total Amount:</b> Rs. ${totalPrice}</p>
+  </div>
+  <div class="payNow">
+    <button type="button" class="btn btn-success" disabled>Pay Now</button>
+  </div>`
+  bottomDiv.innerHTML = bookingDetailsObj;
+  contentDiv.appendChild(bottomDiv);
 }
 
 getParamsFromURL();
+
+if (localStorage.username === "admin"){
+  changePayNowButton();
+}
+
 // API call
 async function getHotel() {
   let url = `https://travel-advisor.p.rapidapi.com/hotels/get-details?location_id=${hotelID}`;
@@ -35,6 +61,7 @@ let descriptionObj;
 async function renderPaymentDetails(){
   let hotelDescription = await getHotel();
   descriptionObj = hotelDescription.data[0];
+  displayLoader(false);
   // change hotel image and description
   document.querySelector('.image img').src = descriptionObj.photo.images.medium.url;
   let topObj = document.querySelector('.top')
@@ -48,45 +75,27 @@ async function renderPaymentDetails(){
   </div>`
   detailDiv.innerHTML = hotelDetails;
   topObj.appendChild(detailDiv);
-  // Change booking details
-  let noOfNights = totalPrice/1000/noOfAdults;
-  let contentDiv = document.querySelector('.content');
-  let bottomDiv = document.createElement('div');
-  bottomDiv.classList.add("bottom");
-  let bookingDetailsObj = `
-  <div class="customer">
-    <p><b>Name:</b> ${bookingName}</p>
-    <p><b>Number of Adults:</b> ${noOfAdults}</p>
-    <p><b>Check-in Date:</b> ${fromDate}</p>
-    <p><b>Check-out Date:</b> ${toDate}</p>
-  </div>
-  <div class="payment">
-    <p><b>Tariff Breakdown:</b> Rs 1000 x ${noOfAdults} Adults x ${noOfNights} nights</p>
-    <p><b>Total Amount:</b> Rs. ${totalPrice}</p>
-  </div>
-  <div class="payNow">
-    <button type="button" class="btn btn-success" disabled>Pay Now</button>
-  </div>`
-  bottomDiv.innerHTML = bookingDetailsObj;
-  contentDiv.appendChild(bottomDiv);
 }
 
 renderPaymentDetails();
 
-// Change Pay Now butoon on Login
+// Change Pay Now button on Login
 
-function changePayNow(){
-  let payNowButton = document.querySelector('.payNow');
-  if (loginState === "loggedIn"){
-    payNowButton.innerHTML = `<button type="button" class="btn btn-success">Pay Now</button>`
+function changePayNowButton(){
+  let payNowDiv = document.querySelector('.payNow');
+  if (localStorage.username === "admin"){
+    payNowDiv.innerHTML = `<button type="button" class="btn btn-success">Pay Now</button>`
   }
+  // Assigning value and event to pay now button on login
+  let payNowButton = document.querySelector('.btn-success');
+  payNowButton.addEventListener('click', alertOnBook);
 }
 
-modalLogin.addEventListener('click', changePayNow);
+if (modalLoginButton){
+  modalLoginButton.addEventListener('click', changePayNowButton);
+}
 
-// Alert on bookingName
-// function alertOnBook(){
-//   alert('Hi! Your booking is successful');
-// }
-
-// document.querySelector('.btn-success').addEventListener('click',alertOnBook)
+// Alert on booking
+function alertOnBook(){
+  alert('Hi! Your booking is successful');
+}

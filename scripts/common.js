@@ -1,3 +1,19 @@
+
+// display and remove loader
+
+function displayLoader(flag){
+  if (flag){
+    document.querySelector("body").style.visibility = "hidden";
+    document.querySelector("#loader").style.visibility = "visible";
+  }
+  else{
+    document.querySelector("#loader").style.display = "none";
+    document.querySelector("body").style.visibility = "visible";
+  }
+}
+
+displayLoader(true);
+
 // Header template literal
 const headerTemplate = document.createElement('header');
 headerTemplate.innerHTML = `
@@ -28,7 +44,7 @@ document.querySelector('.content').after(footerTemplate);
 footerTemplate.setAttribute('class', 'footer');
 
 // Perform login on clicking login button on modal
-let loginState = 'loggedOut';
+
 function performLogin(){
   let usernameValue = document.querySelector('#Username').value;
   let passwordValue = document.querySelector('#Password').value;
@@ -39,12 +55,18 @@ function performLogin(){
     document.querySelector('#myModal').remove();
     localStorage.username = "admin";
     localStorage.password = "admin";
-    loginState = 'loggedIn';
   }
 }
 
-let modalLogin = document.querySelector('#modal-login');
-modalLogin.addEventListener('click', performLogin);
+let modalLoginButton = document.querySelector('#modal-login');
+modalLoginButton.addEventListener('click', performLogin);
+
+// Changing login button if user already logged in
+if (localStorage.username === "admin"){
+  document.querySelector('#header-login').innerText = "Logout";
+  // $('#myModal').modal('hide');
+  document.querySelector('#myModal').remove();
+}
 
 // Perform logout on clicking logout button on header
 function performLogout(){

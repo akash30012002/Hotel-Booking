@@ -22,14 +22,19 @@ form{
   text-align: center;
 }
 
-form > input{
-  width: 50%;
+form > input, form button{
+  width: 30%;
   border: 1px solid transparent;
   padding: 10px;
   background-color: #f1f1f1;
   font-size: 16px;
   border-radius: 12px;
   outline: none;
+  text-align:left;
+}
+
+form button:hover{
+  background-color: lightgrey;
 }
 
 .images{
@@ -83,6 +88,8 @@ form > input{
   .image{
     flex: 50%;
   }
+  form > input, form button{
+    width: 50%;
 }
 
 @media (max-width:576px){

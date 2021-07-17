@@ -1,4 +1,4 @@
-// View More button functionality
+// Toggle View More button functionality
 let viewButton = document.querySelector('.btn-secondary');
 let secondRowImages = document.querySelectorAll('.images')[1];
 secondRowImages.style.display = 'none';
@@ -28,3 +28,46 @@ function modifyCardLinks(){
 }
 
 modifyCardLinks();
+
+// Autocomplete functionality in search bar
+
+async function getLocations(query) {
+  let url = `https://travel-advisor.p.rapidapi.com/locations/auto-complete?query=${query}`;
+  try {
+    let res = await fetch(url, {
+      "method": "GET",
+      "headers": {
+        "x-rapidapi-key": "4d124c4d81msh7fa98382e05e4c7p17c58ejsn28d0e88a3b06",
+        "x-rapidapi-host": "travel-advisor.p.rapidapi.com"
+      }
+    });
+    return await res.json();
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+let locationName;
+async function renderResults() {
+  let formInput = document.querySelector('input[name="city"]');
+  if (formInput.value.length > 2){
+    let response = await getLocations(formInput.value);
+    locationName = response.data[0].result_object.name;
+    let searchResult = document.querySelector("#searchResult");
+    searchResult.innerText = locationName;
+    searchResult.style.visibility = 'visible';
+    document.querySelector('#resultLink').setAttribute('href', `list.html?city=${locationName}`);
+  }
+  else{
+    document.querySelector("#searchResult").style.visibility = 'hidden';
+  }
+}
+
+document.querySelector('input[name="city"]').addEventListener('input', renderResults);
+
+document.onreadystatechange = function() {
+  if (document.readyState === "complete"){
+    document.querySelector("#loader").style.display = "none";
+    document.querySelector("body").style.visibility = "visible";
+  }
+};

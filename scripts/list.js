@@ -1,3 +1,4 @@
+
 // Toggle list view and map view
 let listViewButton = document.querySelectorAll('ul li')[0];
 let mapViewButton = document.querySelectorAll('ul li')[1];
@@ -48,7 +49,9 @@ async function getHotels() {
 let hotels;
 async function renderHotels() {
   let response = await getHotels();
+  displayLoader(false);
   hotels = response.data;
+  let map = initMap();
   let noOfHotels = hotels.length;
   let listViewDiv = document.querySelector('#list-view');
   for (let i=0; i<noOfHotels; i++) {
@@ -72,18 +75,39 @@ async function renderHotels() {
       </div>`
       divElement.innerHTML = hotelDetails;
       listViewDiv.appendChild(divElement);
+      placeMarker(map, hotels[i].result_object);
     }
   }
 }
 
 renderHotels();
 
+// Map View functionality
+function initMap(){
+  let mapProperties = {
+    center: {lat: Number(hotels[1].result_object.latitude), lng: Number(hotels[1].result_object.longitude)},
+    zoom: 10
+  };
 
+  let map = new google.maps.Map(document.getElementById("map-view"), mapProperties);
+  return map;
+}
 
-// fetch('https://travel-advisor.p.rapidapi.com/locations/search?query=Delhi', {
-//       "method": "GET",
-//       "headers": {
-//         "x-rapidapi-key": "4d124c4d81msh7fa98382e05e4c7p17c58ejsn28d0e88a3b06",
-//         "x-rapidapi-host": "travel-advisor.p.rapidapi.com"
-//       }
-//     }).then(res => res.json()).then(ans => ans)
+function placeMarker(map, hotel){
+  let position = { position: {lat: Number(hotel.latitude), lng: Number(hotel.longitude)}, map: map, title: hotel.name };
+  let marker = new google.maps.Marker(position);
+
+  function marker_clicked()
+	{
+    let infoString = `
+    <div>
+      <h6>${hotel.name}</h6>
+      <a href="detail.html?id=${hotel.location_id}">Book Hotel</a>
+    </div>`
+		info.setContent(infoString);
+		info.open(map, this);
+	}
+
+	var info = new google.maps.InfoWindow();
+	marker.addListener('click', marker_clicked);
+}
