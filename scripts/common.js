@@ -64,7 +64,6 @@ modalLoginButton.addEventListener('click', performLogin);
 // Changing login button if user already logged in
 if (localStorage.username === "admin"){
   document.querySelector('#header-login').innerText = "Logout";
-  // $('#myModal').modal('hide');
   document.querySelector('#myModal').remove();
 }
 

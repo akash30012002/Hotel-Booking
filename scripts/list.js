@@ -97,8 +97,7 @@ function placeMarker(map, hotel){
   let position = { position: {lat: Number(hotel.latitude), lng: Number(hotel.longitude)}, map: map, title: hotel.name };
   let marker = new google.maps.Marker(position);
 
-  function marker_clicked()
-	{
+  function marker_clicked(){
     let infoString = `
     <div>
       <h6>${hotel.name}</h6>
@@ -106,6 +105,7 @@ function placeMarker(map, hotel){
     </div>`
 		info.setContent(infoString);
 		info.open(map, this);
+    console.log(this)
 	}
 
 	var info = new google.maps.InfoWindow();

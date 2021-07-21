@@ -51,11 +51,12 @@ let locationName;
 async function renderResults() {
   let formInput = document.querySelector('input[name="city"]');
   if (formInput.value.length > 2){
+    let searchResult = document.querySelector("#searchResult");
+    searchResult.innerText = 'Loading Results...';
+    searchResult.style.visibility = 'visible';
     let response = await getLocations(formInput.value);
     locationName = response.data[0].result_object.name;
-    let searchResult = document.querySelector("#searchResult");
     searchResult.innerText = locationName;
-    searchResult.style.visibility = 'visible';
     document.querySelector('#resultLink').setAttribute('href', `list.html?city=${locationName}`);
   }
   else{
@@ -65,6 +66,7 @@ async function renderResults() {
 
 document.querySelector('input[name="city"]').addEventListener('input', renderResults);
 
+// Remove spinner after the page has loaded fully
 document.onreadystatechange = function() {
   if (document.readyState === "complete"){
     document.querySelector("#loader").style.display = "none";
